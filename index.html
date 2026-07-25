@@ -3,160 +3,597 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vrandolv Eyewear - Official Store</title>
+    <title>Vrandolv Eyewear | Official Online Store</title>
+    <!-- Font Google (Inter & Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --bg-body: #f0f7f9; /* Latar belakang biru muda lembut khas Zenni */
+            --primary-color: #0f172a;
+            --accent-green: #25d366;
+            --gray-light: #f1f5f9;
+            --text-muted: #64748b;
         }
 
         body {
-            background-color: #f8f9fa; /* Background utama off-white bersih */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #222222;
-            min-height: 100vh;
+            background-color: var(--bg-body);
+            color: var(--primary-color);
+        }
+
+        /* 1. ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background-color: #cbeaf2;
+            color: #1e3a8a;
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        /* 2. HEADER & SEARCH BAR */
+        header {
+            background: #ffffff;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e2e8f0;
+            gap: 20px;
+        }
+
+        .brand-logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 550px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 45px 10px 40px;
+            border-radius: 25px;
+            border: 1px solid #cbd5e1;
+            font-size: 14px;
+            outline: none;
+            background-color: #f8fafc;
+        }
+
+        .search-box .icon-search {
+            position: absolute;
+            left: 15px;
+            color: #94a3b8;
+        }
+
+        .search-box .ai-tag {
+            position: absolute;
+            right: 15px;
+            font-size: 12px;
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .header-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            color: #334155;
+            text-decoration: none;
+        }
+
+        /* 3. MAIN NAVIGATION */
+        nav {
+            background: #ffffff;
+            padding: 12px 5%;
+            display: flex;
+            gap: 25px;
+            border-bottom: 1px solid #e2e8f0;
+            overflow-x: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        nav a.sale {
+            color: #dc2626;
+        }
+
+        /* 4. CATEGORY PILLS (SCROLL HORIZONTAL) */
+        .filter-pills {
+            display: flex;
+            gap: 10px;
+            padding: 20px 5%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .pill {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .pill:hover, .pill.active {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        /* 5. HERO PROMO CARDS (GRID BANNER) */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 5% 30px;
+        }
+
+        .banner-card {
+            border-radius: 20px;
+            padding: 30px;
+            color: #0f172a;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-            padding: 40px 20px;
+            min-height: 240px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* HEADER */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        .card-yellow { background-color: #fef08a; }
+        .card-blue { background-color: #bae6fd; }
 
-        header h1 {
-            font-size: 32px;
-            letter-spacing: 3px;
-            color: #111111; /* Judul Hitam Elegan */
+        .banner-card h2 {
+            font-size: 24px;
             font-weight: 800;
-            text-transform: uppercase;
             margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
-        header p {
+        .banner-card p {
             font-size: 14px;
-            color: #666666;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* CONTAINER KATALOG */
-        .catalog {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 900px;
-            width: 100%;
-        }
-
-        /* CARD PRODUK (PUTIH ELEGAN) */
-        .card {
-            background-color: #ffffff; /* Background kartu putih */
-            border: 1px solid #e9ecef; /* Garis tepi halus */
-            border-radius: 16px;
-            padding: 24px;
-            width: 320px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* AREA FOTO PRODUK */
-        .product-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            background-color: #e9ecef;
             margin-bottom: 20px;
+            color: #334155;
         }
 
-        /* DETAIL PRODUK */
-        .card h3 {
-            font-size: 20px;
-            color: #111111;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .price {
-            font-size: 18px;
-            color: #b8860b; /* Warna Emas Premium untuk Harga */
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        /* TOMBOL WHATSAPP */
-        .btn-wa {
-            display: block;
-            width: 100%;
-            padding: 12px 0;
-            background-color: #25D366; /* Hijau WhatsApp */
-            color: #ffffff;
+        .btn-shop {
+            background: #0f172a;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 20px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-wa:hover {
-            background-color: #20ba5a;
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 50px;
+            font-weight: 600;
             font-size: 13px;
-            color: #888888;
+            width: fit-content;
+        }
+
+        /* 6. LINGKARAN IKON FITUR */
+        .feature-icons {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 5%;
+            background: #ffffff;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            gap: 15px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            min-width: 80px;
+        }
+
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .icon-item span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        /* 7. TRUST BADGES */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 0 5% 40px;
+        }
+
+        .trust-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .trust-card h4 {
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+        .trust-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* 8. KATALOG PRODUK (STYLE ZENNI) */
+        .product-section {
+            padding: 0 5% 50px;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .badge-top {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+        .product-image-box {
+            position: relative;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .product-image-box img {
+            max-width: 90%;
+            max-height: 140px;
+            object-fit: contain;
+        }
+
+        /* TOMBOL VIRTUAL TRY ON DI ATAS GAMBAR */
+        .btn-try-on {
+            position: absolute;
+            bottom: 5px;
+            background: #ffffff;
+            border: 1px solid #0f172a;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .product-rating {
+            font-size: 12px;
+            color: #eab308;
+            margin: 4px 0;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        /* COLOR SWATCH CIRCLES */
+        .color-swatches {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .dot-black { background: #000; }
+        .dot-clear { background: #e2e8f0; }
+        .dot-tortoise { background: linear-gradient(45deg, #78350f, #f59e0b); }
+
+        .btn-buy-wa {
+            display: block;
+            background: var(--accent-green);
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* MODAL TRY ON POPUP */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-    <div>
-        <header>
-            <h1>VRANDOLV EYEWEAR</h1>
-            <p>Precision Custom Eyewear & Handmade Frames</p>
-        </header>
+    <!-- 1. ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        ⚡ Promo Khusus: Gratis Ongkir Seluruh Indonesia untuk Pemesanan Hari Ini!
+    </div>
 
-        <main class="catalog">
+    <!-- 2. HEADER & SEARCH BAR -->
+    <header>
+        <a href="#" class="brand-logo">VRANDOLV</a>
+        
+        <div class="search-box">
+            <span class="icon-search">🔍</span>
+            <input type="text" placeholder="Cari frame atau minta rekomendasi AI...">
+            <span class="ai-tag">✨ AI Fit</span>
+        </div>
+
+        <div class="header-icons">
+            <a href="#" class="header-icon-item">👤 <span>Login</span></a>
+            <a href="#" class="header-icon-item">❤️ <span>Favorit</span></a>
+            <a href="https://wa.me/6281234567890" target="_blank" class="header-icon-item">💬 <span>Bantuan</span></a>
+        </div>
+    </header>
+
+    <!-- 3. MAIN NAVIGATION -->
+    <nav>
+        <a href="#">Kacamata Resep</a>
+        <a href="#">Sunglasses</a>
+        <a href="#">Lensa Custom</a>
+        <a href="#">Custom CNC</a>
+        <a href="#">Koleksi Spesial</a>
+        <a href="#" class="sale">🔥 Promo Sale</a>
+    </nav>
+
+    <!-- 4. CATEGORY PILLS (FILTER BENTUK FRAME) -->
+    <div class="filter-pills">
+        <div class="pill active">🔥 Best Sellers</div>
+        <div class="pill">✨ New Arrivals</div>
+        <div class="pill">👓 Rectangle</div>
+        <div class="pill">🕶️ Oversized</div>
+        <div class="pill">🐱 Cat Eye</div>
+        <div class="pill">⚙️ Precision CNC</div>
+        <div class="pill">💎 Premium Custom</div>
+    </div>
+
+    <!-- 5. HERO BANNER CARDS (GAYA ZENNI) -->
+    <div class="hero-grid">
+        <div class="banner-card card-yellow">
+            <div>
+                <h2>PRECISION CNC FRAME</h2>
+                <p>Frame custom presisi buatan tangan & teknologi CNC terbaik.</p>
+            </div>
+            <a href="#katalog" class="btn-shop">Pesan Sekarang</a>
+        </div>
+
+        <div class="banner-card card-blue">
+            <div>
+                <h2>LIGHTWEIGHT & STRONG</h2>
+                <p>Kenyamanan ekstra untuk pemakaian sehari-hari tanpa tertekan.</p>
+            </div>
+            <a href="#katalog" class="btn-shop">Lihat Koleksi</a>
+        </div>
+    </div>
+
+    <!-- 6. LINGKARAN IKON FITUR -->
+    <div class="feature-icons">
+        <div class="icon-item"><div class="icon-circle">⚙️</div><span>Custom CNC</span></div>
+        <div class="icon-item"><div class="icon-circle">🛡️</div><span>Anti Blue Light</span></div>
+        <div class="icon-item"><div class="icon-circle">🌙</div><span>Night Drive</span></div>
+        <div class="icon-item"><div class="icon-circle">🕶️</div><span>Photocromic</span></div>
+        <div class="icon-item"><div class="icon-circle">⚡</div><span>Proses Cepat</span></div>
+    </div>
+
+    <!-- 7. TRUST BADGES -->
+    <div class="trust-grid">
+        <div class="trust-card">
+            <h3>🚚 Gratis Ongkir</h3>
+            <p>Minimal pembelian tertentu</p>
+        </div>
+        <div class="trust-card">
+            <h3>⭐ 4.9 / 5.0 Rating</h3>
+            <p>Ratusan ulasan puas</p>
+        </div>
+        <div class="trust-card">
+            <h3>🔄 Garansi 30 Hari</h3>
+            <p>Jaminan penyesuaian frame</p>
+        </div>
+        <div class="trust-card">
+            <h3>💬 Layanan 24/7</h3>
+            <p>Konsultasi gratis via WA</p>
+        </div>
+    </div>
+
+    <!-- 8. KATALOG PRODUK -->
+    <section class="product-section" id="katalog">
+        <div class="section-header">
+            <h2>Katalog Kacamata Pilihan</h2>
+            <p style="color: #64748b; font-size: 14px;">Pilih frame impianmu dan coba fitur Try-On Virtual</p>
+        </div>
+
+        <div class="product-grid">
             <!-- PRODUK 1 -->
-            <div class="card">
-                <!-- Ganti src di bawah dengan link foto produk asli kamu -->
-                <img src="https://via.placeholder.com/300x180?text=Vrandolv+Classic" alt="Vrandolv Classic Series" class="product-img">
-                <h3>Vrandolv Classic Series</h3>
-                <div class="price">Rp250.000</div>
-                <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv,%20saya%20mau%20pesan%20Classic%20Series" class="btn-wa" target="_blank">Pesan via WhatsApp</a>
+            <div class="product-card">
+                <span class="badge-top">Top rated</span>
+                <div class="product-image-box">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80" alt="Vrandolv Classic">
+                    <button class="btn-try-on" onclick="openTryOn('Vrandolv Classic Series')">📷 Try on</button>
+                </div>
+                <div class="product-info">
+                    <div class="product-price">Rp250.000</div>
+                    <div class="product-rating">★ 4.8 (120+ ulasan)</div>
+                    <div class="product-title">Vrandolv Classic Series</div>
+                    <div class="color-swatches">
+                        <div class="dot dot-black"></div>
+                        <div class="dot dot-clear"></div>
+                        <div class="dot dot-tortoise"></div>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv,%20saya%20mau%20pesan%20Vrandolv%20Classic%20Series" target="_blank" class="btn-buy-wa">Beli via WhatsApp</a>
+                </div>
             </div>
 
             <!-- PRODUK 2 -->
-            <div class="card">
-                <!-- Ganti src di bawah dengan link foto produk asli kamu -->
-                <img src="https://via.placeholder.com/300x180?text=Vrandolv+Custom+CNC" alt="Vrandolv Custom CNC" class="product-img">
-                <h3>Vrandolv Custom CNC</h3>
-                <div class="price">Rp350.000</div>
-                <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv,%20saya%20mau%20pesan%20Custom%20CNC" class="btn-wa" target="_blank">Pesan via WhatsApp</a>
+            <div class="product-card">
+                <span class="badge-top">Custom CNC</span>
+                <div class="product-image-box">
+                    <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=500&q=80" alt="Vrandolv Custom CNC">
+                    <button class="btn-try-on" onclick="openTryOn('Vrandolv Custom CNC')">📷 Try on</button>
+                </div>
+                <div class="product-info">
+                    <div class="product-price">Rp350.000</div>
+                    <div class="product-rating">★ 4.9 (85 ulasan)</div>
+                    <div class="product-title">Vrandolv Custom CNC Frame</div>
+                    <div class="color-swatches">
+                        <div class="dot dot-black"></div>
+                        <div class="dot dot-clear"></div>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv,%20saya%20mau%20pesan%20Vrandolv%20Custom%20CNC" target="_blank" class="btn-buy-wa">Beli via WhatsApp</a>
+                </div>
             </div>
-        </main>
+        </div>
+    </section>
+
+    <!-- MODAL VIRTUAL TRY ON -->
+    <div class="modal" id="tryonModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Simulasi Try-On</h3>
+            <p style="font-size: 13px; color: #64748b; margin: 15px 0;">Fitur kamera Virtual Try-On langsung di web sedang dalam pengembangan. Kamu bisa konsultasi bentuk wajah secara langsung bersama admin kami!</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20bantu%20saya%20pilihkan%20frame%20kacamata%20yang%20cocok" target="_blank" class="btn-buy-wa" style="display:inline-block; width:100%;">Konsultasi Bentuk Wajah</a>
+            <button onclick="closeModal()" style="margin-top: 10px; background:none; border:none; color:#888; cursor:pointer;">Tutup</button>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Vrandolv Eyewear. All rights reserved.</p>
     </footer>
 
+    <script>
+        function openTryOn(name) {
+            document.getElementById('modalTitle').innerText = 'Try-On: ' + name;
+            document.getElementById('tryonModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('tryonModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
