@@ -3,46 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vrandolv Eyewear - Official Website</title>
+    <title>Vrandolv Eyewear - Official Store</title>
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background-color: #0b1325; color: #ffffff; text-align: center; padding: 20px; }
-        header { padding: 40px 10px 20px; }
-        h1 { color: #d4af37; font-size: 2.2rem; letter-spacing: 3px; margin-bottom: 5px; }
-        p.subtitle { color: #a0aec0; font-size: 0.95rem; letter-spacing: 1px; }
-        .container { max-width: 800px; margin: 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .card { background: #162238; border: 1px solid #1e2d4a; border-radius: 12px; padding: 20px; text-align: center; }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background-color: #0b1325; }
-        .card h3 { margin: 15px 0 5px; color: #ffffff; font-size: 1.2rem; }
-        .card .price { color: #d4af37; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; }
-        .btn-wa { display: inline-block; width: 100%; padding: 12px 0; background-color: #25d366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        .btn-wa:hover { background-color: #1eb954; }
-        footer { margin-top: 50px; color: #718096; font-size: 0.85rem; padding-bottom: 20px; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f8f9fa; /* Background utama off-white bersih */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222222;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            letter-spacing: 3px;
+            color: #111111; /* Judul Hitam Elegan */
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #666666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* CONTAINER KATALOG */
+        .catalog {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* CARD PRODUK (PUTIH ELEGAN) */
+        .card {
+            background-color: #ffffff; /* Background kartu putih */
+            border: 1px solid #e9ecef; /* Garis tepi halus */
+            border-radius: 16px;
+            padding: 24px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* AREA FOTO PRODUK */
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            background-color: #e9ecef;
+            margin-bottom: 20px;
+        }
+
+        /* DETAIL PRODUK */
+        .card h3 {
+            font-size: 20px;
+            color: #111111;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #b8860b; /* Warna Emas Premium untuk Harga */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* TOMBOL WHATSAPP */
+        .btn-wa {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #25D366; /* Hijau WhatsApp */
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-wa:hover {
+            background-color: #20ba5a;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            font-size: 13px;
+            color: #888888;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>VRANDOLV EYEWEAR</h1>
-        <p class="subtitle">Precision Custom Eyewear & Handmade Frames</p>
-    </header>
+    <div>
+        <header>
+            <h1>VRANDOLV EYEWEAR</h1>
+            <p>Precision Custom Eyewear & Handmade Frames</p>
+        </header>
 
-    <div class="container">
-        <!-- Produk 1 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200/162238/d4af37?text=Vrandolv+Frame+1" alt="Frame Vrandolv">
-            <h3>Vrandolv Classic Series</h3>
-            <div class="price">Rp250.000</div>
-            <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv%20Care,%20saya%20tertarik%20dengan%20Frame%20Classic%20Series" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
-        </div>
+        <main class="catalog">
+            <!-- PRODUK 1 -->
+            <div class="card">
+                <!-- Ganti src di bawah dengan link foto produk asli kamu -->
+                <img src="https://via.placeholder.com/300x180?text=Vrandolv+Classic" alt="Vrandolv Classic Series" class="product-img">
+                <h3>Vrandolv Classic Series</h3>
+                <div class="price">Rp250.000</div>
+                <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv,%20saya%20mau%20pesan%20Classic%20Series" class="btn-wa" target="_blank">Pesan via WhatsApp</a>
+            </div>
 
-        <!-- Produk 2 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200/162238/d4af37?text=Vrandolv+Frame+2" alt="Frame Vrandolv">
-            <h3>Vrandolv Custom CNC</h3>
-            <div class="price">Rp350.000</div>
-            <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv%20Care,%20saya%20tertarik%20dengan%20Frame%20Custom%20CNC" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
-        </div>
+            <!-- PRODUK 2 -->
+            <div class="card">
+                <!-- Ganti src di bawah dengan link foto produk asli kamu -->
+                <img src="https://via.placeholder.com/300x180?text=Vrandolv+Custom+CNC" alt="Vrandolv Custom CNC" class="product-img">
+                <h3>Vrandolv Custom CNC</h3>
+                <div class="price">Rp350.000</div>
+                <a href="https://wa.me/6281234567890?text=Halo%20Vrandolv,%20saya%20mau%20pesan%20Custom%20CNC" class="btn-wa" target="_blank">Pesan via WhatsApp</a>
+            </div>
+        </main>
     </div>
 
     <footer>
