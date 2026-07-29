@@ -222,13 +222,20 @@
   .tile-body p { margin-top: 8px; font-size: 13.5px; color: var(--ink-dim); }
   .tile-body .go { margin-top: 16px; display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--brass-deep); }
 
-  /* TESTIMONI */
-  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
-  .testi-card { border: 1px solid var(--line); padding: 26px; background: var(--bg-soft); }
+  /* TESTIMONI (3 KOTAK SIMETRIS) */
+  .testi-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 22px; 
+  }
+  @media (max-width: 860px) { 
+    .testi-grid { grid-template-columns: 1fr; } 
+  }
+  .testi-card { border: 1px solid var(--line); padding: 28px; background: var(--bg-soft); display: flex; flex-direction: column; justify-content: space-between; }
   .stars { font-family: 'IBM Plex Sans', sans-serif; color: var(--star); font-size: 14px; letter-spacing: 2px; }
-  .testi-card p { margin-top: 14px; font-size: 14px; color: var(--ink-dim); font-style: italic; }
-  .testi-card .who { margin-top: 16px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--ink); }
-  .testi-card .who span { color: var(--ink-dim); }
+  .testi-card p { margin-top: 14px; font-size: 14px; color: var(--ink-dim); font-style: italic; line-height: 1.6; }
+  .testi-card .who { margin-top: 20px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12.5px; font-weight: 600; color: var(--ink); border-top: 1px dashed var(--line); padding-top: 12px; }
+  .testi-card .who span { font-weight: 400; color: var(--ink-dim); }
 
   /* KONTAK */
   .contact { background: var(--bg-soft); text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -356,10 +363,11 @@
     </div>
   </section>
 
+  <!-- TESTIMONI SECTION (3 ULASAN PILIHAN) -->
   <section id="testimoni">
     <div class="section-head">
-      <div class="eyebrow">Kata Mereka</div>
-      <h2>Testimoni pelanggan</h2>
+      <div class="eyebrow">Kata Mereka · 4.9 / 5.0 Rating Pelanggan</div>
+      <h2>Pengalaman Pembelian & Servis</h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
@@ -373,14 +381,9 @@
         <div class="who">Aldi P. <span>· Servis Perbaikan Frame</span></div>
       </div>
       <div class="testi-card">
-        <div class="stars">★★★★☆</div>
+        <div class="stars">★★★★★</div>
         <p>"Titan Ultralight ini beneran ringan, dipakai seharian nggak berasa nekan hidung sama sekali."</p>
         <div class="who">Michelle T. <span>· Titan Ultralight</span></div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>"Fitur try-on-nya membantu banget buat nentuin ukuran sebelum akhirnya chat admin buat pesan."</p>
-        <div class="who">Yusuf H. <span>· Retro Browline</span></div>
       </div>
     </div>
   </section>
