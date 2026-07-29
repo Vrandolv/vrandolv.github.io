@@ -42,7 +42,7 @@
       top: 0; 
       left: 0; 
       width: 100%; 
-      height: 56px; /* DIKECILKAN: Dari 65px jadi 56px agar navbar lebih ramping & modern */
+      height: 60px; /* Dikunci: Tinggi navbar tetap 60px ramping & modern */
       display: flex; 
       justify-content: space-between; 
       align-items: center;
@@ -55,22 +55,60 @@
     .brand-container {
       display: flex;
       align-items: center;
-      gap: 1px;
+      gap: 10px; /* Jarak proporsional antara logo & teks */
       text-decoration: none;
     }
 
     .nav-logo-img {
-      height: 36px; /* Disesuaikan agar pas di dalam bar 56px */
+      height: 38px; /* Ukuran logo tameng pas di dalam navbar */
       width: auto;
       object-fit: contain;
-      transform: translateY(2px); /* DITURUNKAN: Mendorong logo turun 2px ke bawah */
+      transform: translateY(2px); /* DITURUNKAN: Mendorong logo turun 2px agar sejajar teks */
     }
+
+    .logo { 
+      font-family: 'Newsreader', serif; 
+      font-weight: 600; 
+      font-size: 22px; 
+      color: #FFFFFF; 
+      letter-spacing: 0.05em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .logo span { 
+      color: #FFFFFF; 
+      font-weight: 400; 
+      margin-left: 4px;
+      opacity: 0.85;
+    }
+
+    .nav-links { 
+      display: flex; 
+      gap: 28px; 
+      list-style: none; 
+    }
+
+    .nav-links a { 
+      text-decoration: none; 
+      font-family: 'IBM Plex Sans', sans-serif; 
+      font-size: 13px; 
+      font-weight: 500; 
+      letter-spacing: 0.04em; 
+      text-transform: uppercase; 
+      color: #FFFFFF; 
+      transition: color .25s; 
+    }
+
+    .nav-links a:hover { color: var(--brass); }
+
+    @media (max-width: 860px) { .nav-links { display: none; } }
 
     /* HERO SLIDER */
     .hero-slider {
       position: relative;
       width: 100%;
-      margin-top: 56px; /* DISESUAIKAN: Samakan dengan height nav (56px) */
+      margin-top: 60px; /* Samakan dengan height nav (60px) */
       padding: 0 !important;
       overflow: hidden;
     }
