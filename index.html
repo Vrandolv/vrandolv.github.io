@@ -33,7 +33,7 @@
   a { color: inherit; }
   img { max-width: 100%; display: block; }
 
-  /* NAVIGATION BAR (THEME NAVY & WHITE) */
+  /* NAVIGATION BAR (NAVY & WHITE) */
   nav {
     position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
     padding: 18px 6%; 
@@ -222,7 +222,7 @@
   .tile-body p { margin-top: 8px; font-size: 13.5px; color: var(--ink-dim); }
   .tile-body .go { margin-top: 16px; display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--brass-deep); }
 
-  /* TESTIMONI (3 KOTAK SIMETRIS) */
+  /* TESTIMONI SECTION (3 KOTAK SIMETRIS & VERIFIKASI) */
   .testi-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
@@ -231,11 +231,65 @@
   @media (max-width: 860px) { 
     .testi-grid { grid-template-columns: 1fr; } 
   }
-  .testi-card { border: 1px solid var(--line); padding: 28px; background: var(--bg-soft); display: flex; flex-direction: column; justify-content: space-between; }
+  .testi-card { 
+    border: 1px solid var(--line); 
+    padding: 28px; 
+    background: var(--bg-soft); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+  }
   .stars { font-family: 'IBM Plex Sans', sans-serif; color: var(--star); font-size: 14px; letter-spacing: 2px; }
   .testi-card p { margin-top: 14px; font-size: 14px; color: var(--ink-dim); font-style: italic; line-height: 1.6; }
-  .testi-card .who { margin-top: 20px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12.5px; font-weight: 600; color: var(--ink); border-top: 1px dashed var(--line); padding-top: 12px; }
+  .testi-card .who { 
+    margin-top: 20px; 
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-size: 12.5px; 
+    font-weight: 600; 
+    color: var(--ink); 
+    border-top: 1px dashed var(--line); 
+    padding-top: 14px; 
+  }
   .testi-card .who span { font-weight: 400; color: var(--ink-dim); }
+  
+  .testi-source {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--brass-deep);
+    background: rgba(185, 138, 70, 0.1);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .testi-footer-action {
+    margin-top: 36px;
+    text-align: center;
+  }
+  .btn-google {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-google:hover {
+    border-color: var(--brass);
+    color: var(--brass-deep);
+    box-shadow: 0 4px 16px rgba(22, 40, 61, 0.06);
+  }
 
   /* KONTAK */
   .contact { background: var(--bg-soft); text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -363,28 +417,56 @@
     </div>
   </section>
 
-  <!-- TESTIMONI SECTION (3 ULASAN PILIHAN) -->
+  <!-- TESTIMONI SECTION -->
   <section id="testimoni">
     <div class="section-head">
       <div class="eyebrow">Kata Mereka · 4.9 / 5.0 Rating Pelanggan</div>
       <h2>Pengalaman Pembelian & Servis</h2>
     </div>
+    
     <div class="testi-grid">
+      <!-- TESTI 1 -->
       <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>"Konsultasi ukurannya detail banget, frame yang datang beneran pas di wajah tanpa perlu direparasi lagi."</p>
-        <div class="who">Dinda R. <span>· Classic Round</span></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>"Konsultasi ukurannya detail banget, frame yang datang beneran pas di wajah tanpa perlu direparasi lagi."</p>
+        </div>
+        <div class="who">
+          Dinda R. <span>· Classic Round</span>
+          <div><span class="testi-source">📍 via Google Review</span></div>
+        </div>
       </div>
+
+      <!-- TESTI 2 -->
       <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>"Gagang kacamata lama saya patah, dibawa ke sini malah jadi kayak baru lagi. Harganya juga masuk akal."</p>
-        <div class="who">Aldi P. <span>· Servis Perbaikan Frame</span></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>"Gagang kacamata lama saya patah, dibawa ke sini malah jadi kayak baru lagi. Harganya juga masuk akal."</p>
+        </div>
+        <div class="who">
+          Aldi P. <span>· Servis Perbaikan Frame</span>
+          <div><span class="testi-source">💬 via WhatsApp</span></div>
+        </div>
       </div>
+
+      <!-- TESTI 3 -->
       <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>"Titan Ultralight ini beneran ringan, dipakai seharian nggak berasa nekan hidung sama sekali."</p>
-        <div class="who">Michelle T. <span>· Titan Ultralight</span></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>"Titan Ultralight ini beneran ringan, dipakai seharian nggak berasa nekan hidung sama sekali."</p>
+        </div>
+        <div class="who">
+          Michelle T. <span>· Titan Ultralight</span>
+          <div><span class="testi-source">📍 via Google Review</span></div>
+        </div>
       </div>
+    </div>
+
+    <!-- TOMBOL LINK KE GOOGLE MAPS -->
+    <div class="testi-footer-action">
+      <a href="https://maps.google.com" target="_blank" class="btn-google">
+        📍 Lihat Semua Ulasan di Google Maps →
+      </a>
     </div>
   </section>
 
