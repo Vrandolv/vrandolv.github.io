@@ -36,7 +36,7 @@
   /* NAVIGATION BAR (NAVY & WHITE) */
   nav {
     position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
-    padding: 18px 6%; 
+    padding: 16px 6%; 
     background: var(--navy); 
     border-bottom: 1px solid rgba(255, 255, 255, 0.12); 
     z-index: 1000;
@@ -44,7 +44,13 @@
   .brand-container {
     display: flex;
     align-items: center;
+    gap: 12px;
     text-decoration: none;
+  }
+  .nav-logo-img {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
   }
   .logo { 
     font-family: 'Newsreader', serif; 
@@ -52,6 +58,7 @@
     font-size: 22px; 
     color: #FFFFFF; 
     letter-spacing: 0.05em;
+    line-height: 1;
   }
   .logo span { 
     color: #FFFFFF; 
@@ -222,7 +229,7 @@
   .tile-body p { margin-top: 8px; font-size: 13.5px; color: var(--ink-dim); }
   .tile-body .go { margin-top: 16px; display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--brass-deep); }
 
-  /* TESTIMONI SECTION (3 KOTAK SIMETRIS & VERIFIKASI) */
+  /* TESTIMONI SECTION */
   .testi-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
@@ -316,6 +323,8 @@
 
   <nav>
     <a href="#" class="brand-container">
+      <!-- Tambahan Logo Gambar -->
+      <img src="logo-vrandolv.png" alt="Vrandolv Logo" class="nav-logo-img">
       <div class="logo">VRANDOLV <span>EYEWEAR</span></div>
     </a>
     <ul class="nav-links">
@@ -462,7 +471,6 @@
       </div>
     </div>
 
-    <!-- TOMBOL LINK KE GOOGLE MAPS -->
     <div class="testi-footer-action">
       <a href="https://maps.google.com" target="_blank" class="btn-google">
         📍 Lihat Semua Ulasan di Google Maps →
