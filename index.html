@@ -35,7 +35,7 @@
   /* NAVIGATION BAR */
   nav {
     position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
-    padding: 14px 6%; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+    padding: 18px 6%; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line); z-index: 1000;
   }
   .brand-container {
@@ -43,10 +43,17 @@
     align-items: center;
     text-decoration: none;
   }
-  .brand-logo {
-    height: 42px;
-    width: auto;
-    object-fit: contain;
+  .logo { 
+    font-family: 'Newsreader', serif; 
+    font-weight: 600; 
+    font-size: 22px; 
+    color: var(--ink); 
+    letter-spacing: 0.05em;
+  }
+  .logo span { 
+    color: var(--ink); 
+    font-weight: 400; 
+    margin-left: 4px;
   }
   
   .nav-links { display: flex; gap: 28px; list-style: none; }
@@ -235,7 +242,7 @@
 
   <nav>
     <a href="#" class="brand-container">
-      <img src="02.png" alt="Vrandolv Eyewear" class="brand-logo">
+      <div class="logo">VRANDOLV <span>EYEWEAR</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="katalog.html">Katalog</a></li>
