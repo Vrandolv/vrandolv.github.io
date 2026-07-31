@@ -70,9 +70,9 @@
       opacity: 0.85;
     }
     
-    /* HAMBURGER TOGGLE BUTTON (SELALU MUNCUL DI SEMUA LAYAR) */
+    /* HAMBURGER TOGGLE BUTTON (PAKSA MUNCUL DI MANAPUN) */
     .menu-toggle {
-      display: flex;
+      display: flex !important;
       flex-direction: column;
       justify-content: space-between;
       width: 24px;
@@ -90,28 +90,28 @@
       transition: all 0.3s ease;
     }
 
-    /* NAV LINKS MENU DROPDOWN */
+    /* NAV LINKS MENU DROPDOWN (PAKSA SEMBUNYI DAN JADI DROPDOWN DI MANAPUN) */
     .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: var(--navy);
-      padding: 0 6%;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      display: flex !important;
+      flex-direction: column !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      width: 100% !important;
+      background: var(--navy) !important;
+      padding: 0 6% !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      gap: 20px;
-      align-items: flex-start;
-      list-style: none;
+      gap: 20px !important;
+      align-items: flex-start !important;
+      list-style: none !important;
     }
 
     .nav-links.active {
-      max-height: 300px;
-      padding: 20px 6%;
+      max-height: 300px !important;
+      padding: 20px 6% !important;
     }
 
     .nav-links a { 
@@ -126,7 +126,7 @@
     }
     .nav-links a:hover { color: var(--brass); }
 
-    /* Animasi Ikon Hamburger ke Silang (X) saat diklik */
+    /* Animasi Ikon Hamburger ke Silang (X) */
     .menu-toggle.active span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
     }
@@ -384,7 +384,7 @@
       <div class="logo">VRANDOLV <span>EYEWEAR</span></div>
     </a>
 
-    <!-- TOMBOL HAMBURGER (MUNCUL DI PC & MOBILE) -->
+    <!-- TOMBOL HAMBURGER (3 GARIS) -->
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu">
       <span></span>
       <span></span>
@@ -571,7 +571,6 @@
       navLinks.classList.toggle('active');
     });
 
-    // Otomatis menutup menu setelah diklik
     navItems.forEach(item => {
       item.addEventListener('click', () => {
         mobileMenuBtn.classList.remove('active');
