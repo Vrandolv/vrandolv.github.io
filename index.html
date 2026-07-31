@@ -70,22 +70,9 @@
       opacity: 0.85;
     }
     
-    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav-links a { 
-      text-decoration: none; 
-      font-family: 'IBM Plex Sans', sans-serif; 
-      font-size: 13px; 
-      font-weight: 500; 
-      letter-spacing: 0.04em; 
-      text-transform: uppercase; 
-      color: #FFFFFF; 
-      transition: color .25s; 
-    }
-    .nav-links a:hover { color: var(--brass); }
-    
-    /* HAMBURGER TOGGLE BUTTON */
+    /* HAMBURGER TOGGLE BUTTON (SELALU MUNCUL DI SEMUA LAYAR) */
     .menu-toggle {
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: space-between;
       width: 24px;
@@ -103,42 +90,51 @@
       transition: all 0.3s ease;
     }
 
-    /* MEDIA QUERY UNTUK HP / TABLET */
-    @media (max-width: 860px) {
-      .menu-toggle { display: flex; }
-      
-      .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--navy);
-        padding: 0 6%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        gap: 20px;
-        align-items: flex-start;
-      }
+    /* NAV LINKS MENU DROPDOWN */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--navy);
+      padding: 0 6%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 20px;
+      align-items: flex-start;
+      list-style: none;
+    }
 
-      .nav-links.active {
-        max-height: 300px;
-        padding: 20px 6%;
-      }
+    .nav-links.active {
+      max-height: 300px;
+      padding: 20px 6%;
+    }
 
-      /* Animasi Ikon Hamburger ke Silang (X) */
-      .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-      }
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
+    .nav-links a { 
+      text-decoration: none; 
+      font-family: 'IBM Plex Sans', sans-serif; 
+      font-size: 13px; 
+      font-weight: 500; 
+      letter-spacing: 0.04em; 
+      text-transform: uppercase; 
+      color: #FFFFFF; 
+      transition: color .25s; 
+    }
+    .nav-links a:hover { color: var(--brass); }
+
+    /* Animasi Ikon Hamburger ke Silang (X) saat diklik */
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
 
     /* HERO SLIDER */
@@ -388,7 +384,7 @@
       <div class="logo">VRANDOLV <span>EYEWEAR</span></div>
     </a>
 
-    <!-- TOMBOL HAMBURGER MOBILE -->
+    <!-- TOMBOL HAMBURGER (MUNCUL DI PC & MOBILE) -->
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu">
       <span></span>
       <span></span>
@@ -565,7 +561,7 @@
   </footer>
 
   <script>
-    // --- HAMBURGER MENU LOGIC ---
+    // HAMBURGER MENU TOGGLE LOGIC
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
     const navItems = navLinks.querySelectorAll('a');
@@ -575,7 +571,7 @@
       navLinks.classList.toggle('active');
     });
 
-    // Otomatis tutup menu saat salah satu link diklik (khususnya untuk tautan anchor #)
+    // Otomatis menutup menu setelah diklik
     navItems.forEach(item => {
       item.addEventListener('click', () => {
         mobileMenuBtn.classList.remove('active');
@@ -583,7 +579,7 @@
       });
     });
 
-    // --- HERO SLIDER LOGIC ---
+    // HERO SLIDER LOGIC
     const container = document.getElementById('slidesContainer');
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
