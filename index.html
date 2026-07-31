@@ -39,7 +39,7 @@
     /* NAVIGATION BAR */
     nav {
       position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 6%; 
+      padding: 12px 6%; 
       background: var(--navy); 
       border-bottom: 1px solid rgba(255, 255, 255, 0.12); 
       z-index: 1000;
@@ -47,7 +47,7 @@
     .brand-container {
       display: flex;
       align-items: center;
-      gap: 1px;
+      gap: 8px;
       text-decoration: none;
     }
     .nav-logo-img {
@@ -58,7 +58,7 @@
     .logo { 
       font-family: 'Newsreader', serif; 
       font-weight: 600; 
-      font-size: 12px; 
+      font-size: 13px; 
       color: #FFFFFF; 
       letter-spacing: 0.05em;
       line-height: 1;
@@ -70,7 +70,7 @@
       opacity: 0.85;
     }
     
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
     .nav-links a { 
       text-decoration: none; 
       font-family: 'IBM Plex Sans', sans-serif; 
@@ -83,13 +83,69 @@
     }
     .nav-links a:hover { color: var(--brass); }
     
-    @media (max-width: 860px) { .nav-links { display: none; } }
+    /* HAMBURGER TOGGLE BUTTON */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+    .menu-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: #FFFFFF;
+      transition: all 0.3s ease;
+    }
+
+    /* MEDIA QUERY UNTUK HP / TABLET */
+    @media (max-width: 860px) {
+      .menu-toggle { display: flex; }
+      
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        padding: 0 6%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        max-height: 300px;
+        padding: 20px 6%;
+      }
+
+      /* Animasi Ikon Hamburger ke Silang (X) */
+      .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
 
     /* HERO SLIDER */
     .hero-slider {
       position: relative;
       width: 100%;
-      margin-top: 65px;
+      margin-top: 55px;
       padding: 0 !important;
       overflow: hidden;
     }
@@ -331,7 +387,15 @@
       <img src="logo.png" alt="Vrandolv Eyewear Logo" class="nav-logo-img">
       <div class="logo">VRANDOLV <span>EYEWEAR</span></div>
     </a>
-    <ul class="nav-links">
+
+    <!-- TOMBOL HAMBURGER MOBILE -->
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="katalog.html">Katalog</a></li>
       <li><a href="layanan.html">Layanan</a></li>
       <li><a href="artikel.html">Artikel</a></li>
@@ -501,6 +565,25 @@
   </footer>
 
   <script>
+    // --- HAMBURGER MENU LOGIC ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const navItems = navLinks.querySelectorAll('a');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Otomatis tutup menu saat salah satu link diklik (khususnya untuk tautan anchor #)
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // --- HERO SLIDER LOGIC ---
     const container = document.getElementById('slidesContainer');
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -552,7 +635,6 @@
       });
     });
 
-    // Deteksi scroll manual swipe di HP
     container.addEventListener('scroll', () => {
       const slideWidth = container.clientWidth;
       const newIndex = Math.round(container.scrollLeft / slideWidth);
