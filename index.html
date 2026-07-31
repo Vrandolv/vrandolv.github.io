@@ -79,6 +79,37 @@
       margin-left: 4px;
       opacity: 0.85;
     }
+
+    .nav-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* LANGUAGE SWITCHER TOGGLE */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 2px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lang-btn {
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      transition: all 0.25s ease;
+    }
+    .lang-btn.active {
+      background: var(--brass);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
     
     /* HAMBURGER TOGGLE BUTTON */
     .menu-toggle {
@@ -423,19 +454,27 @@
       <div class="logo">VRANDOLV <span>EYEWEAR</span></div>
     </a>
 
-    <!-- TOMBOL HAMBURGER -->
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="nav-right-controls">
+      <!-- SAKELAR GAMBAR/TOGGLE BAHASA -->
+      <div class="lang-switcher" id="langToggle">
+        <span class="lang-btn active" id="btnID">ID</span>
+        <span class="lang-btn" id="btnEN">EN</span>
+      </div>
+
+      <!-- TOMBOL HAMBURGER -->
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="katalog.html">Katalog</a></li>
-      <li><a href="layanan.html">Layanan</a></li>
-      <li><a href="artikel.html">Artikel</a></li>
-      <li><a href="#testimoni">Testimoni</a></li>
-      <li><a href="#kontak">Kontak</a></li>
+      <li><a href="katalog.html" data-i18n="nav_catalog">Katalog</a></li>
+      <li><a href="layanan.html" data-i18n="nav_services">Layanan</a></li>
+      <li><a href="artikel.html" data-i18n="nav_articles">Artikel</a></li>
+      <li><a href="#testimoni" data-i18n="nav_testimonials">Testimoni</a></li>
+      <li><a href="#kontak" data-i18n="nav_contact">Kontak</a></li>
     </ul>
   </nav>
 
@@ -450,10 +489,10 @@
       <a href="katalog.html" class="slide">
         <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1600&q=80" alt="Katalog Kacamata Vrandolv">
         <div class="slide-content">
-          <span class="eyebrow">Ready Stock Minggu Ini</span>
-          <h2>Katalog Kacamata Terbaru</h2>
-          <p>Jelajahi koleksi frame eksklusif dengan pilihan virtual try-on dan ukuran presisi.</p>
-          <span class="btn btn-brass">Lihat Katalog →</span>
+          <span class="eyebrow" data-i18n="slide1_eyebrow">Ready Stock Minggu Ini</span>
+          <h2 data-i18n="slide1_title">Katalog Kacamata Terbaru</h2>
+          <p data-i18n="slide1_desc">Jelajahi koleksi frame eksklusif dengan pilihan virtual try-on dan ukuran presisi.</p>
+          <span class="btn btn-brass" data-i18n="slide1_btn">Lihat Katalog →</span>
         </div>
       </a>
 
@@ -461,10 +500,10 @@
       <a href="layanan.html" class="slide">
         <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=1600&q=80" alt="Layanan Servis Kacamata">
         <div class="slide-content">
-          <span class="eyebrow">Layanan Restorasi & Presisi</span>
-          <h2>Servis Frame & Pasang Lensa</h2>
-          <p>Perbaikan gagang, repaint, cuci ultrasonic, hingga pemasangan lensa resep kustom.</p>
-          <span class="btn btn-brass">Lihat Layanan →</span>
+          <span class="eyebrow" data-i18n="slide2_eyebrow">Layanan Restorasi & Presisi</span>
+          <h2 data-i18n="slide2_title">Servis Frame & Pasang Lensa</h2>
+          <p data-i18n="slide2_desc">Perbaikan gagang, repaint, cuci ultrasonic, hingga pemasangan lensa resep kustom.</p>
+          <span class="btn btn-brass" data-i18n="slide2_btn">Lihat Layanan →</span>
         </div>
       </a>
 
@@ -472,10 +511,10 @@
       <a href="artikel.html" class="slide">
         <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1600&q=80" alt="Panduan Artikel Eyewear">
         <div class="slide-content">
-          <span class="eyebrow">Edukasi & Tips</span>
-          <h2>Panduan Memilih Frame Wajah</h2>
-          <p>Temukan tips perawatan kacamata dan panduan memilih bentuk frame yang paling sesuai.</p>
-          <span class="btn btn-brass">Baca Artikel →</span>
+          <span class="eyebrow" data-i18n="slide3_eyebrow">Edukasi & Tips</span>
+          <h2 data-i18n="slide3_title">Panduan Memilih Frame Wajah</h2>
+          <p data-i18n="slide3_desc">Temukan tips perawatan kacamata dan panduan memilih bentuk frame yang paling sesuai.</p>
+          <span class="btn btn-brass" data-i18n="slide3_btn">Baca Artikel →</span>
         </div>
       </a>
 
@@ -490,9 +529,9 @@
 
   <section id="jelajahi">
     <div class="section-head">
-      <div class="eyebrow">Mulai Dari Sini</div>
-      <h2>Klik untuk lihat lebih lengkap</h2>
-      <p>Tiga hal utama yang bisa kamu jelajahi di Vrandolv — katalog ready stock, layanan servis, dan artikel seputar kacamata.</p>
+      <div class="eyebrow" data-i18n="explore_eyebrow">Mulai Dari Sini</div>
+      <h2 data-i18n="explore_title">Klik untuk lihat lebih lengkap</h2>
+      <p data-i18n="explore_desc">Tiga hal utama yang bisa kamu jelajahi di Vrandolv — katalog ready stock, layanan servis, dan artikel seputar kacamata.</p>
     </div>
     <div class="tiles">
       <a href="katalog.html" class="tile">
@@ -500,30 +539,30 @@
           <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=700&q=80" alt="Katalog kacamata Vrandolv">
         </div>
         <div class="tile-body">
-          <span class="eyebrow">Ready Stock</span>
-          <h3>Katalog Kacamata</h3>
-          <p>4 frame ready stock minggu ini, lengkap ukuran &amp; rentang resep, plus virtual try-on.</p>
-          <span class="go">Lihat Semua Katalog →</span>
+          <span class="eyebrow" data-i18n="tile1_eyebrow">Ready Stock</span>
+          <h3 data-i18n="tile1_title">Katalog Kacamata</h3>
+          <p data-i18n="tile1_desc">4 frame ready stock minggu ini, lengkap ukuran &amp; rentang resep, plus virtual try-on.</p>
+          <span class="go" data-i18n="tile1_go">Lihat Semua Katalog →</span>
         </div>
       </a>
 
       <a href="layanan.html" class="tile">
         <div class="tile-media"><span class="tile-icon">🔧</span></div>
         <div class="tile-body">
-          <span class="eyebrow">Servis</span>
-          <h3>Layanan</h3>
-          <p>Perbaikan frame, cuci ultrasonic, repaint, sampai pasang lensa resep sendiri.</p>
-          <span class="go">Lihat Semua Layanan →</span>
+          <span class="eyebrow" data-i18n="tile2_eyebrow">Servis</span>
+          <h3 data-i18n="tile2_title">Layanan</h3>
+          <p data-i18n="tile2_desc">Perbaikan frame, cuci ultrasonic, repaint, sampai pasang lensa resep sendiri.</p>
+          <span class="go" data-i18n="tile2_go">Lihat Semua Layanan →</span>
         </div>
       </a>
 
       <a href="artikel.html" class="tile">
         <div class="tile-media"><span class="tile-icon">📖</span></div>
         <div class="tile-body">
-          <span class="eyebrow">Baca Dulu</span>
-          <h3>Artikel</h3>
-          <p>Tips perawatan, tanda ganti resep, dan panduan memilih bentuk frame.</p>
-          <span class="go">Baca Semua Artikel →</span>
+          <span class="eyebrow" data-i18n="tile3_eyebrow">Baca Dulu</span>
+          <h3 data-i18n="tile3_title">Artikel</h3>
+          <p data-i18n="tile3_desc">Tips perawatan, tanda ganti resep, dan panduan memilih bentuk frame.</p>
+          <span class="go" data-i18n="tile3_go">Baca Semua Artikel →</span>
         </div>
       </a>
     </div>
@@ -532,8 +571,8 @@
   <!-- TESTIMONI SECTION -->
   <section id="testimoni">
     <div class="section-head">
-      <div class="eyebrow">Testimoni</div>
-      <h2>Pengalaman Pembelian</h2>
+      <div class="eyebrow" data-i18n="testi_eyebrow">Testimoni</div>
+      <h2 data-i18n="testi_title">Pengalaman Pembelian</h2>
     </div>
     
     <div class="testi-grid">
@@ -541,11 +580,11 @@
       <div class="testi-card">
         <div>
           <div class="stars">★★★★★</div>
-          <p>"Konsultasi ukurannya detail banget, frame yang datang beneran pas di wajah tanpa perlu direparasi lagi."</p>
+          <p data-i18n="testi1_text">"Konsultasi ukurannya detail banget, frame yang datang beneran pas di wajah tanpa perlu direparasi lagi."</p>
         </div>
         <div class="who">
           Dinda R. <span>· Classic Round</span>
-          <div><span class="testi-source">📍 via Google Review</span></div>
+          <div><span class="testi-source" data-i18n="testi_gmaps">📍 via Google Review</span></div>
         </div>
       </div>
 
@@ -553,10 +592,10 @@
       <div class="testi-card">
         <div>
           <div class="stars">★★★★★</div>
-          <p>"Gagang kacamata lama saya patah, dibawa ke sini malah jadi kayak baru lagi. Harganya juga masuk akal."</p>
+          <p data-i18n="testi2_text">"Gagang kacamata lama saya patah, dibawa ke sini malah jadi kayak baru lagi. Harganya juga masuk akal."</p>
         </div>
         <div class="who">
-          Aldi P. <span>· Servis Perbaikan Frame</span>
+          Aldi P. <span data-i18n="testi2_sub">· Servis Perbaikan Frame</span>
           <div><span class="testi-source">💬 via WhatsApp</span></div>
         </div>
       </div>
@@ -565,42 +604,196 @@
       <div class="testi-card">
         <div>
           <div class="stars">★★★★★</div>
-          <p>"Titan Ultralight ini beneran ringan, dipakai seharian nggak berasa nekan hidung sama sekali."</p>
+          <p data-i18n="testi3_text">"Titan Ultralight ini beneran ringan, dipakai seharian nggak berasa nekan hidung sama sekali."</p>
         </div>
         <div class="who">
           Michelle T. <span>· Titan Ultralight</span>
-          <div><span class="testi-source">📍 via Google Review</span></div>
+          <div><span class="testi-source" data-i18n="testi_gmaps">📍 via Google Review</span></div>
         </div>
       </div>
     </div>
 
     <div class="testi-footer-action">
-      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-google">
+      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-google" data-i18n="testi_all">
         Lihat Semua Ulasan →
       </a>
     </div>
   </section>
 
   <section class="contact" id="kontak">
-    <div class="eyebrow">Hubungi Kami</div>
-    <h2>Konsultasi resep atau ukuran frame?</h2>
-    <p>Chat langsung admin kami via WhatsApp, atau kirim email kalau butuh detail tertulis — kami balas secepatnya.</p>
+    <div class="eyebrow" data-i18n="contact_eyebrow">Hubungi Kami</div>
+    <h2 data-i18n="contact_title">Konsultasi resep atau ukuran frame?</h2>
+    <p data-i18n="contact_desc">Chat langsung admin kami via WhatsApp, atau kirim email kalau butuh detail tertulis — kami balas secepatnya.</p>
     <div class="contact-actions">
-      <a href="https://wa.me/6282187307030?text=Halo%20Vrandolv,%20saya%20ingin%20bertanya" target="_blank" rel="noopener noreferrer" class="btn btn-wa">Chat WhatsApp</a>
-      <a href="mailto:vrandolv@gmail.com" class="btn btn-email">Kirim Email</a>
+      <a href="https://wa.me/6282187307030?text=Halo%20Vrandolv,%20saya%20ingin%20bertanya" target="_blank" rel="noopener noreferrer" class="btn btn-wa" data-i18n="btn_wa">Chat WhatsApp</a>
+      <a href="mailto:vrandolv@gmail.com" class="btn btn-email" data-i18n="btn_email">Kirim Email</a>
     </div>
-    <div class="contact-hours mono">Senin – Sabtu · 10.00 – 19.00 WITA</div>
+    <div class="contact-hours mono" data-i18n="contact_hours">Senin – Sabtu · 10.00 – 19.00 WITA</div>
   </section>
 
   <!-- FLOATING CHAT ADMIN -->
-  <a href="https://wa.me/6282187307030?text=Halo%20Vrandolv,%20saya%20ingin%20bertanya%20produk" target="_blank" rel="noopener noreferrer" class="floating-wa">Chat Admin</a>
+  <a href="https://wa.me/6282187307030?text=Halo%20Vrandolv,%20saya%20ingin%20bertanya%20produk" target="_blank" rel="noopener noreferrer" class="floating-wa" id="floatingWaBtn" data-i18n="floating_wa">Chat Admin</a>
 
   <footer>
-    <div class="mono">© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup</div>
+    <div class="mono" data-i18n="footer_tagline">© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup</div>
     <div class="mono">Bitung, Indonesia · vrandolv@gmail.com</div>
   </footer>
 
   <script>
+    // DICTIONARY MULTI-BAHASA (ID / EN)
+    const translations = {
+      id: {
+        nav_catalog: "Katalog",
+        nav_services: "Layanan",
+        nav_articles: "Artikel",
+        nav_testimonials: "Testimoni",
+        nav_contact: "Kontak",
+        
+        slide1_eyebrow: "Ready Stock Minggu Ini",
+        slide1_title: "Katalog Kacamata Terbaru",
+        slide1_desc: "Jelajahi koleksi frame eksklusif dengan pilihan virtual try-on dan ukuran presisi.",
+        slide1_btn: "Lihat Katalog →",
+        
+        slide2_eyebrow: "Layanan Restorasi & Presisi",
+        slide2_title: "Servis Frame & Pasang Lensa",
+        slide2_desc: "Perbaikan gagang, repaint, cuci ultrasonic, hingga pemasangan lensa resep kustom.",
+        slide2_btn: "Lihat Layanan →",
+        
+        slide3_eyebrow: "Edukasi & Tips",
+        slide3_title: "Panduan Memilih Frame Wajah",
+        slide3_desc: "Temukan tips perawatan kacamata dan panduan memilih bentuk frame yang paling sesuai.",
+        slide3_btn: "Baca Artikel →",
+        
+        explore_eyebrow: "Mulai Dari Sini",
+        explore_title: "Klik untuk lihat lebih lengkap",
+        explore_desc: "Tiga hal utama yang bisa kamu jelajahi di Vrandolv — katalog ready stock, layanan servis, dan artikel seputar kacamata.",
+        
+        tile1_eyebrow: "Ready Stock",
+        tile1_title: "Katalog Kacamata",
+        tile1_desc: "4 frame ready stock minggu ini, lengkap ukuran & rentang resep, plus virtual try-on.",
+        tile1_go: "Lihat Semua Katalog →",
+        
+        tile2_eyebrow: "Servis",
+        tile2_title: "Layanan",
+        tile2_desc: "Perbaikan frame, cuci ultrasonic, repaint, sampai pasang lensa resep sendiri.",
+        tile2_go: "Lihat Semua Layanan →",
+        
+        tile3_eyebrow: "Baca Dulu",
+        tile3_title: "Artikel",
+        tile3_desc: "Tips perawatan, tanda ganti resep, dan panduan memilih bentuk frame.",
+        tile3_go: "Baca Semua Artikel →",
+        
+        testi_eyebrow: "Testimoni",
+        testi_title: "Pengalaman Pembelian",
+        testi1_text: '"Konsultasi ukurannya detail banget, frame yang datang beneran pas di wajah tanpa perlu direparasi lagi."',
+        testi2_text: '"Gagang kacamata lama saya patah, dibawa ke sini malah jadi kayak baru lagi. Harganya juga masuk akal."',
+        testi2_sub: "· Servis Perbaikan Frame",
+        testi3_text: '"Titan Ultralight ini beneran ringan, dipakai seharian nggak berasa nekan hidung sama sekali."',
+        testi_gmaps: "📍 via Google Review",
+        testi_all: "Lihat Semua Ulasan →",
+        
+        contact_eyebrow: "Hubungi Kami",
+        contact_title: "Konsultasi resep atau ukuran frame?",
+        contact_desc: "Chat langsung admin kami via WhatsApp, atau kirim email kalau butuh detail tertulis — kami balas secepatnya.",
+        btn_wa: "Chat WhatsApp",
+        btn_email: "Kirim Email",
+        contact_hours: "Senin – Sabtu · 10.00 – 19.00 WITA",
+        floating_wa: "Chat Admin",
+        footer_tagline: "© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup"
+      },
+      en: {
+        nav_catalog: "Catalog",
+        nav_services: "Services",
+        nav_articles: "Articles",
+        nav_testimonials: "Testimonials",
+        nav_contact: "Contact",
+        
+        slide1_eyebrow: "Ready Stock This Week",
+        slide1_title: "Latest Eyewear Catalog",
+        slide1_desc: "Explore our exclusive frame collection with virtual try-on options and precise fitting.",
+        slide1_btn: "View Catalog →",
+        
+        slide2_eyebrow: "Restoration & Precision Services",
+        slide2_title: "Frame Repair & Lens Fitting",
+        slide2_desc: "Temple repairs, repainting, ultrasonic cleaning, to custom prescription lens fitting.",
+        slide2_btn: "View Services →",
+        
+        slide3_eyebrow: "Education & Tips",
+        slide3_title: "Face Shape Frame Guide",
+        slide3_desc: "Discover eyewear care tips and guides to find the perfect frame shape for your face.",
+        slide3_btn: "Read Articles →",
+        
+        explore_eyebrow: "Start Here",
+        explore_title: "Click to explore more",
+        explore_desc: "Three main pillars to discover at Vrandolv — ready stock catalog, repair services, and eyewear guides.",
+        
+        tile1_eyebrow: "Ready Stock",
+        tile1_title: "Eyewear Catalog",
+        tile1_desc: "4 ready stock frames this week, complete with measurements & prescription ranges, plus virtual try-on.",
+        tile1_go: "View Full Catalog →",
+        
+        tile2_eyebrow: "Services",
+        tile2_title: "Repair & Custom",
+        tile2_desc: "Frame repairs, ultrasonic cleaning, repainting, and custom prescription fitting.",
+        tile2_go: "View All Services →",
+        
+        tile3_eyebrow: "Read First",
+        tile3_title: "Articles & Guides",
+        tile3_desc: "Maintenance tips, signs you need new prescription, and frame selection guides.",
+        tile3_go: "Read All Articles →",
+        
+        testi_eyebrow: "Testimonials",
+        testi_title: "Customer Experience",
+        testi1_text: '"The sizing consultation was super detailed! The frame fits my face perfectly without needing any readjustments."',
+        testi2_text: '"My old glasses temple broke, brought it here and it came back looking brand new. Very reasonable pricing too."',
+        testi2_sub: "· Frame Repair Service",
+        testi3_text: '"Titan Ultralight is insanely lightweight, wearing it all day feels like nothing on my nose bridge."',
+        testi_gmaps: "📍 via Google Review",
+        testi_all: "View All Reviews →",
+        
+        contact_eyebrow: "Contact Us",
+        contact_title: "Need help with prescription or sizing?",
+        contact_desc: "Chat directly with our admin via WhatsApp or email us for written details — we reply promptly.",
+        btn_wa: "WhatsApp Chat",
+        btn_email: "Send Email",
+        contact_hours: "Monday – Saturday · 10.00 – 19.00 WITA",
+        floating_wa: "Chat Admin",
+        footer_tagline: "© 2026 VRANDOLV EYEWEAR — Different Focus, Different Life"
+      }
+    };
+
+    // LOGIKA PERGANTIAN BAHASA
+    const langToggle = document.getElementById('langToggle');
+    const btnID = document.getElementById('btnID');
+    const btnEN = document.getElementById('btnEN');
+    let currentLang = 'id';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      // Toggle tampilan tombol aktif
+      if (lang === 'en') {
+        btnEN.classList.add('active');
+        btnID.classList.remove('active');
+      } else {
+        btnID.classList.add('active');
+        btnEN.classList.remove('active');
+      }
+
+      // Update seluruh teks yang memiliki attribute data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    langToggle.addEventListener('click', () => {
+      const newLang = currentLang === 'id' ? 'en' : 'id';
+      setLanguage(newLang);
+    });
+
     // HAMBURGER MENU TOGGLE LOGIC
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
