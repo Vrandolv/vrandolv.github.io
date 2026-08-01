@@ -435,6 +435,7 @@
       gap: 8px; 
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.25s ease;
+      cursor: pointer;
     }
     .floating-wa:hover {
       background: var(--brass);
@@ -631,8 +632,8 @@
     <div class="contact-hours mono" data-i18n="contact_hours">Senin – Sabtu · 10.00 – 19.00 WITA</div>
   </section>
 
-  <!-- FLOATING CHAT ADMIN -->
-  <a href="https://wa.me/6282187307030?text=Halo%20Vrandolv,%20saya%20ingin%20bertanya%20produk" target="_blank" rel="noopener noreferrer" class="floating-wa" id="floatingWaBtn" data-i18n="floating_wa">Chat Admin</a>
+  <!-- FLOATING CHAT ADMIN (TRIGGER TAWK.TO) -->
+  <a href="javascript:void(0);" onclick="Tawk_API.maximize();" class="floating-wa" id="floatingWaBtn" data-i18n="floating_wa">Chat Admin</a>
 
   <footer>
     <div class="mono" data-i18n="footer_tagline">© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup</div>
@@ -880,6 +881,12 @@
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+
+  // Sembunyikan balon widget bawaan Tawk.to secara otomatis
+  Tawk_API.onLoad = function(){
+      Tawk_API.hideWidget();
+  };
+
   (function(){
   var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
   s1.async=true;
