@@ -427,35 +427,6 @@
     .btn-email { border: 1px solid var(--ink); color: var(--ink); }
     .btn-email:hover { background: var(--ink); color: #fff; }
 
-    /* FLOATING CHAT ADMIN */
-    .floating-wa { 
-      position: fixed; 
-      bottom: 24px; 
-      right: 24px; 
-      background: var(--navy); 
-      color: #fff; 
-      padding: 14px 22px; 
-      border-radius: 40px; 
-      text-decoration: none; 
-      font-family: 'IBM Plex Sans', sans-serif; 
-      font-size: 13px; 
-      font-weight: 600; 
-      letter-spacing: 0.02em; 
-      box-shadow: 0 6px 20px rgba(22,40,61,0.22); 
-      z-index: 900; 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-    .floating-wa:hover {
-      background: var(--brass);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(185, 138, 70, 0.3);
-    }
-
     footer { padding: 34px 6%; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     footer .mono { font-size: 12px; color: var(--ink-dim); font-family: 'IBM Plex Sans', sans-serif; }
   </style>
@@ -645,9 +616,6 @@
     <div class="contact-hours mono" data-i18n="contact_hours">Senin – Sabtu · 10.00 – 19.00 WITA</div>
   </section>
 
-  <!-- FLOATING CHAT ADMIN (TRIGGER CRISP) -->
-  <a href="javascript:void(0);" onclick="$crisp.push(['do', 'chat:open']);" class="floating-wa" id="floatingWaBtn" data-i18n="floating_wa">Chat Admin</a>
-
   <footer>
     <div class="mono" data-i18n="footer_tagline">© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup</div>
     <div class="mono">Bitung, Indonesia · vrandolv@gmail.com</div>
@@ -712,7 +680,6 @@
         btn_wa: "Chat WhatsApp",
         btn_email: "Kirim Email",
         contact_hours: "Senin – Sabtu · 10.00 – 19.00 WITA",
-        floating_wa: "Chat Admin",
         footer_tagline: "© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup"
       },
       en: {
@@ -771,7 +738,6 @@
         btn_wa: "WhatsApp Chat",
         btn_email: "Send Email",
         contact_hours: "Monday – Saturday · 10.00 – 19.00 WITA",
-        floating_wa: "Chat Admin",
         footer_tagline: "© 2026 VRANDOLV EYEWEAR — Different Focus, Different Life"
       }
     };
