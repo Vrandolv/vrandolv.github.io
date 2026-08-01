@@ -11,6 +11,19 @@
     gtag('config', 'G-2PZ8WZ2CWY');
   </script>
 
+  <!-- Crisp Live Chat -->
+  <script type="text/javascript">
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID="a9e53313-4cc8-4d6a-8f64-8a4b1bf65b73";
+    (function(){
+      d=document;
+      s=d.createElement("script");
+      s.src="https://client.crisp.chat/l.js";
+      s.async=1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vrandolv Eyewear — Beda Fokus, Beda Hidup</title>
@@ -632,8 +645,8 @@
     <div class="contact-hours mono" data-i18n="contact_hours">Senin – Sabtu · 10.00 – 19.00 WITA</div>
   </section>
 
-  <!-- FLOATING CHAT ADMIN (TRIGGER TAWK.TO) -->
-  <a href="javascript:void(0);" onclick="Tawk_API.maximize();" class="floating-wa" id="floatingWaBtn" data-i18n="floating_wa">Chat Admin</a>
+  <!-- FLOATING CHAT ADMIN (TRIGGER CRISP) -->
+  <a href="javascript:void(0);" onclick="$crisp.push(['do', 'chat:open']);" class="floating-wa" id="floatingWaBtn" data-i18n="floating_wa">Chat Admin</a>
 
   <footer>
     <div class="mono" data-i18n="footer_tagline">© 2026 VRANDOLV EYEWEAR — Beda Fokus, Beda Hidup</div>
@@ -877,43 +890,5 @@
 
     startAutoSlide();
   </script>
-
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-
-  // 1. Sembunyikan balon widget bawaan Tawk.to saat pertama kali dimuat
-  Tawk_API.onLoad = function(){
-      Tawk_API.hideWidget();
-  };
-
-  // 2. Saat jendela chat DIBUKA, sembunyikan tombol "Chat Admin"
-  Tawk_API.onChatMaximized = function(){
-      var btn = document.getElementById('floatingWaBtn');
-      if (btn) btn.style.display = 'none';
-  };
-
-  // 3. Saat jendela chat DITUTUP / DIMINIMIZE, munculkan lagi tombol "Chat Admin"
-  Tawk_API.onChatMinimized = function(){
-      var btn = document.getElementById('floatingWaBtn');
-      if (btn) btn.style.display = 'flex';
-  };
-
-  // 4. Jika chat disembunyikan total
-  Tawk_API.onChatHidden = function(){
-      var btn = document.getElementById('floatingWaBtn');
-      if (btn) btn.style.display = 'flex';
-  };
-
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6a6da31396b8361d472ce752/1juu4a1hb';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
 </body>
 </html>
